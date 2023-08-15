@@ -1,0 +1,33 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Pagina de Cursos
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <h1>{{ titulo|upper }} - {% now "d / m / Y " %}</h1>
+
+    <h4>Cantidad de Cursos en la tabla {{ cursos|length }}</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre de Curso</th>
+                <th>Comision</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in cursos  %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.comision }}</td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+    {% comment %} <h4>Comisiones {{ comisiones.0 }}, {{ comisiones.1 }} </h4> {% endcomment %}
+{% endblock contenido %}
